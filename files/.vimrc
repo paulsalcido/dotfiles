@@ -39,16 +39,20 @@ nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 
 vnoremap <leader>" <esc>`<i"<esc>`>i"
 
+" Quick Comment Settings ------------------------ {{{
 augroup mycomments
     autocmd!
     autocmd FileType perl   nnoremap <buffer> <localleader>c I#<esc>
     autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
     autocmd FileType vim    nnoremap <buffer> <localleader>c I"<esc>
 augroup END
+" }}}
 
+" Search Settings ------------------------------- {{{
 augroup mysearch
     autocmd!
 augroup END
+" }}}
 
 " Movement Settings ----------------------------- {{{
 augroup mymoves
@@ -71,6 +75,7 @@ augroup myvimrc
     autocmd FileType vim    iabbrev <buffer> fty FileType
     autocmd FileType vim    iabbrev <buffer> iab iabbrev
     autocmd FileType vim    iabbrev <buffer> bfr <buffer>
+    autocmd FileType vim    iabbrev <buffer> setl setlocal
     autocmd FileType vim    setlocal statusline=%.20F\ \-\ %l/%L\ \-\ %y
     autocmd FileType vim    setlocal foldmethod=marker
     autocmd FileType vim    setlocal foldlevelstart=1
