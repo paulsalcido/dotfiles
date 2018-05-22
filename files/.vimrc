@@ -45,6 +45,7 @@ augroup mycomments
     autocmd FileType perl   nnoremap <buffer> <localleader>c I#<esc>
     autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
     autocmd FileType vim    nnoremap <buffer> <localleader>c I"<esc>
+    autocmd FileType perl   nnoremap <buffer> <localleader>s :<c-u>execute "normal! mqA;\e`q"<cr>
 augroup END
 " }}}
 
@@ -85,7 +86,6 @@ augroup END
 " MyPerl File Setting --------------------------- {{{
 augroup myperl
     autocmd!
-    autocmd FileType perl   :iabbrev <buffer> hatr =head2<cr><cr>=cut<cr><cr>has [qw//] => (is => 'ro',isa => 'Any',);
     autocmd FileType perl   :iabbrev <buffer> ppp package
     autocmd FileType perl   :iabbrev <buffer> PPP __PACKAGE__
 augroup END
