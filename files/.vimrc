@@ -15,7 +15,13 @@ let maplocalleader = "\\"
 " -_ will move a line up
 nnoremap <leader>- ddp
 nnoremap <leader>_ ddkP
+
+" Search is replaced with /\v, which is better search
 nnoremap / /\v
+
+" Show trailing [ws]hite space.
+nnoremap <leader>w :match Error /\v\s+$/<cr>
+nnoremap <leader>W :match Error<cr>
 
 " -ev to edit my vimrc.
 " -sv to source my vimrc.
