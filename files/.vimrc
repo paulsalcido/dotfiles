@@ -14,6 +14,7 @@ let maplocalleader = "\\"
 " -_ will move a line up
 nnoremap <leader>- ddp
 nnoremap <leader>_ ddkP
+nnoremap / /\v
 
 " -ev to edit my vimrc.
 " -sv to source my vimrc.
