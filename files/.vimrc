@@ -2,6 +2,7 @@ set expandtab tabstop=4 shiftwidth=4
 set smartindent
 set autoindent
 set nu
+set hlsearch incsearch
 
 autocmd BufRead,BufNewFile *.pl setfiletype perl
 autocmd BufRead,BufNewFile *.pm setfiletype perl
