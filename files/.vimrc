@@ -19,6 +19,9 @@ nnoremap <leader>_ ddkP
 " Search is replaced with /\v, which is better search
 nnoremap / /\v
 
+nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>
+nnoremap <leader>cn :cnext<cr>
+
 " Show trailing [ws]hite space.
 nnoremap <leader>w :match Error /\v\s+$/<cr>
 nnoremap <leader>W :match Error<cr>
