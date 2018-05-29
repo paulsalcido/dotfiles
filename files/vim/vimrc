@@ -4,10 +4,6 @@ set autoindent
 set nu
 set hlsearch incsearch
 
-autocmd BufRead,BufNewFile *.pl setfiletype perl
-autocmd BufRead,BufNewFile *.pm setfiletype perl
-autocmd BufRead,BufNewFile *.md setfiletype markdown
-
 let mapleader = "-"
 let maplocalleader = "\\"
 
