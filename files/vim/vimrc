@@ -20,6 +20,7 @@ nnoremap <leader>_ ddkP
 nnoremap / /\v
 
 nnoremap <leader>cn :cnext<cr>
+nnoremap <leader>N :setlocal number!<cr>
 
 " Show trailing [ws]hite space.
 nnoremap <leader>w :match Error /\v\s+$/<cr>
