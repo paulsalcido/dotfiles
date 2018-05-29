@@ -10,5 +10,6 @@ function! GrepOperator(type)
         return
     endif
 
-    echom @@
+    silent execute "grep! -R " . shellescape(@@) . " ."
+    copen
 endfunction
