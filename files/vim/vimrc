@@ -91,6 +91,7 @@ augroup myvimrc
     autocmd FileType vim    iabbrev <buffer> func function
     autocmd FileType vim    iabbrev <buffer> endf endfunction
     autocmd FileType vim    iabbrev <buffer> eno execute "normal!"
+    autocmd FileType vim    iabbrev <buffer> elsif elseif
     autocmd FileType vim    setlocal statusline=%.20F\ \-\ %l/%L\ \-\ %y
     autocmd FileType vim    setlocal foldmethod=marker
     autocmd FileType vim    setlocal foldlevelstart=1
