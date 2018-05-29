@@ -19,7 +19,7 @@ nnoremap <leader>_ ddkP
 " Search is replaced with /\v, which is better search
 nnoremap / /\v
 
-nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>
+" nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>
 nnoremap <leader>cn :cnext<cr>
 
 " Show trailing [ws]hite space.
@@ -88,9 +88,17 @@ augroup myvimrc
     autocmd FileType vim    iabbrev <buffer> iab iabbrev
     autocmd FileType vim    iabbrev <buffer> bfr <buffer>
     autocmd FileType vim    iabbrev <buffer> setl setlocal
+    autocmd FileType vim    iabbrev <buffer> func function
+    autocmd FileType vim    iabbrev <buffer> endf endfunction
     autocmd FileType vim    setlocal statusline=%.20F\ \-\ %l/%L\ \-\ %y
     autocmd FileType vim    setlocal foldmethod=marker
     autocmd FileType vim    setlocal foldlevelstart=1
+    autocmd FileType vim    setlocal smartindent
+    autocmd FileType vim    setlocal autoindent
+    autocmd FileType vim    setlocal number
+    autocmd FileType vim    setlocal expandtab tabstop=4 shiftwidth=4
+    autocmd FileType vim    setlocal hlsearch incsearch
+    autocmd FileType vim    setlocal nowrap
 augroup END
 " }}}
 
