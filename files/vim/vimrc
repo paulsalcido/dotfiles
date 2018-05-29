@@ -1,6 +1,3 @@
-set expandtab tabstop=4 shiftwidth=4
-set smartindent
-set autoindent
 set nu
 set hlsearch incsearch
 
@@ -80,6 +77,8 @@ augroup END
 augroup myvimrc
     autocmd!
     autocmd FileType vim    iabbrev <buffer> auc autocmd
+    autocmd FileType vim    iabbrev <buffer> ags augroup
+    autocmd FileType vim    iabbrev <buffer> age augroup END
     autocmd FileType vim    iabbrev <buffer> fty FileType
     autocmd FileType vim    iabbrev <buffer> iab iabbrev
     autocmd FileType vim    iabbrev <buffer> bfr <buffer>
@@ -103,7 +102,15 @@ augroup END
 " MyPerl File Setting --------------------------- {{{
 augroup myperl
     autocmd!
-    autocmd FileType perl   :iabbrev <buffer> ppp package
-    autocmd FileType perl   :iabbrev <buffer> PPP __PACKAGE__
+    autocmd FileType perl   iabbrev <buffer> ppp package
+    autocmd FileType perl   iabbrev <buffer> PPP __PACKAGE__
+    autocmd FileType perl   setlocal smartindent autoindent expandtab tabstop=4 shiftwidth=4
+augroup END
+" }}}
+
+" MyRuby File Setting --------------------------- {{{
+augroup myruby
+    autocmd!
+    autocmd FileType ruby   setlocal smartindent autoindent expandtab tabstop=2 shiftwidth=2
 augroup END
 " }}}
