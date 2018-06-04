@@ -7,6 +7,8 @@ filetype plugin on
 let mapleader = "-"
 let maplocalleader = "\\"
 
+colorscheme desert
+
 " -- will move a line down
 " -_ will move a line up
 nnoremap <leader>- ddp
