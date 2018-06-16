@@ -119,3 +119,5 @@ fi
 umask 0022
 
 export EDITOR=vim
+
+set -o vi
