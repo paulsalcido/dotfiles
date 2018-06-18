@@ -1,0 +1,98 @@
+*pdsvim.txt*: The vim settings for Paul Salcido
+
+==============================================================================
+1. About ......................................................... |PDS-About|
+2. Settings ................................................... |PDS-Settings|
+    2.1 Maps ...................................................... |PDS-Maps|
+    2.2 Functions ............................................ |PDS-Functions|
+3. License ..................................................... |PDS-License|
+4. Author ....................................................... |PDS-Author|
+5. Additional TODO Removes ..................................... |PDS-Removes|
+
+==============================================================================
+1. About                                                           *PDS-About*
+
+In this vim directory, you'll find the settings that Paul David Salcido
+prefers to use when he is using vim.  This documentation is, in fact, Paul
+Salcido writing about his own vim settings while using the third person.  I
+doubt anyone else will enjoy this, but it's here just in case anyone else
+should get interested.
+
+==============================================================================
+2. Settings                                                     *PDS-Settings*
+
+This script opens by injecting pathogen.  I am trying to get all of my
+language specific settings into their own 'bundles' using pathogen.  I would
+like to change this to native packages when I move to vim 8.0, which I haven't
+done because all of the places where I code have not yet upgraded.  I might
+want to switch on version, but I'm not sure about ftplugin with packages.
+
+I like color 'desert' and leader as '-' and local leader as '\', so that's how
+it's set up.
+
+I don't use treeview, and instead, I use netrw with list style set to tree,
+opens in new tabs, window size at 25%.
+
+Most importantly, and the most shocking to someone using my vim, you'll
+probably want to note that the escape key has been replaced with 'jk' in
+insert mode.
+
+2.1 Maps                                                            *PDS-Maps*
+
+    --: Move line down.
+    -_: Move line up.
+
+    -er: Edit a top level README or README.md file for current repository.
+    -ef: Open the vim file directory for my plugin for the current file type.
+    -tv: Open my treeview navigator, just a carefully prepared netrw.
+    -ev: Edit the main vimrc file.
+    -sv: Source the main vimrc file.
+
+    C+u: Uppercase a word that I've just finished typing.
+    -": Surround last word in quotes.
+    -': Surround last word in ticks.
+
+2.2 Functions                                                  *PDS-Functions*
+
+MyGitRoot: Returns the git root for the current repository.
+
+MyReadmeFile: Edits the top level readme file in a new split.
+
+EditMyVimFileDir: Find my vim plugin (by name constraint) and edit the
+ftplugin directory for the current file type.  This works for most as I have
+one vim plugin for each file type, one for vimultiplex, but unfortunately vim
+documentation shares the same one as vim files themselves.
+
+3. License                                                       *PDS-License*
+
+Copyright (c) 2018 Paul David Salcido
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+4. Author
+
+Paul David Salcido paulsalcido.79@gmail.com
+
+5. Additional TODO Removes                                       *PDS-Removes*
+
+There are parts of this file I need to move elsewhere.  These include the
+autocommand groups at the bottom of the file.  I add in the ability to comment
+out lines for various filetypes, and have settings for perl, a few movement
+settings and iabbrevs that should be deleted or go elsewhere.  I'll be
+deleting them as I add in more configuration for whatever I need to work on.

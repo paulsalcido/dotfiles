@@ -46,9 +46,6 @@ inoremap <c-u> <esc>viwU<esc>i
 inoremap jk <esc>
 inoremap <esc> <nop>
 
-nnoremap H <Home>
-nnoremap L <End>
-
 iabbrev mynm Paul Salcido
 iabbrev ssig Paul Salcido<cr>paulsalcido.79@gmail.com
 iabbrev wbst https://gitlab.salcido.io/
