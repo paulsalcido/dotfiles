@@ -24,6 +24,10 @@ nnoremap <leader>N :setlocal number!<cr>
 nnoremap <leader>w :match Error /\v\s+$/<cr>
 nnoremap <leader>W :match Error<cr>
 
+" edit a readme file.
+nnoremap <leader>er :call MyReadmeFile()<cr>
+nnoremap <leader>ef :call EditMyVimFileDir()<cr>
+
 " -ev to edit my vimrc.
 " -sv to source my vimrc.
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -47,6 +51,22 @@ nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 
 vnoremap <leader>" <esc>`<i"<esc>`>i"
+
+function! MyGitRoot()
+    return substitute(system('git rev-parse --show-toplevel'), '\n\+$', '', '')
+endfunction
+
+function! MyReadmeFile()
+    let files = split(globpath(MyGitRoot(), 'README*'), '\n')
+    if len(files) ># 0
+        execute "normal! :vsplit " . files[0] . "\r\r"
+    endif
+endfunction
+
+function! EditMyVimFileDir()
+    let directory = $HOME . '/devel/pds-' . &filetype . '-vim-plugin/ftplugin/' . &filetype
+    execute "normal! :vsplit " . directory . "\r\r"
+endfunction
 
 " Quick Comment Settings ------------------------ {{{
 augroup mycomments
@@ -78,32 +98,6 @@ augroup mymoves
 augroup END
 " }}}
 
-" VimScript File Settings ----------------------- {{{
-augroup myvimrc
-    autocmd!
-    autocmd FileType vim    iabbrev <buffer> auc autocmd
-    autocmd FileType vim    iabbrev <buffer> ags augroup
-    autocmd FileType vim    iabbrev <buffer> age augroup END
-    autocmd FileType vim    iabbrev <buffer> fty FileType
-    autocmd FileType vim    iabbrev <buffer> iab iabbrev
-    autocmd FileType vim    iabbrev <buffer> bfr <buffer>
-    autocmd FileType vim    iabbrev <buffer> setl setlocal
-    autocmd FileType vim    iabbrev <buffer> func function
-    autocmd FileType vim    iabbrev <buffer> endf endfunction
-    autocmd FileType vim    iabbrev <buffer> eno execute "normal!"
-    autocmd FileType vim    iabbrev <buffer> elsif elseif
-    autocmd FileType vim    setlocal statusline=%.20F\ \-\ %l/%L\ \-\ %y
-    autocmd FileType vim    setlocal foldmethod=marker
-    autocmd FileType vim    setlocal foldlevelstart=1
-    autocmd FileType vim    setlocal smartindent
-    autocmd FileType vim    setlocal autoindent
-    autocmd FileType vim    setlocal number
-    autocmd FileType vim    setlocal expandtab tabstop=4 shiftwidth=4
-    autocmd FileType vim    setlocal hlsearch incsearch
-    autocmd FileType vim    setlocal nowrap
-augroup END
-" }}}
-
 " MyPerl File Setting --------------------------- {{{
 augroup myperl
     autocmd!
@@ -119,3 +113,5 @@ augroup myruby
     autocmd FileType ruby   setlocal smartindent autoindent expandtab tabstop=2 shiftwidth=2
 augroup END
 " }}}
+
+set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
