@@ -14,4 +14,5 @@ function! basic#MyOpenCommandSplit(command, name, myft)
     setlocal buftype=nofile
 
     call append(0, split(data, '\v\n'))
+    normal! gg
 endfunction
