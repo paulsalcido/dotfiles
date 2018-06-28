@@ -29,6 +29,9 @@ nnoremap <leader>N :setlocal number!<cr>
 nnoremap <leader>w :match Error /\v\s+$/<cr>
 nnoremap <leader>W :match Error<cr>
 
+" Quick git commits
+nnoremap <leader>gca :!git add --all<cr>:!git commit -a<cr>
+
 " edit a readme file.
 nnoremap <leader>er :call MyReadmeFile()<cr>
 nnoremap <leader>ef :call EditMyVimFileDir()<cr>
