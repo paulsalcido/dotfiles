@@ -8,7 +8,7 @@ use File::Spec;
 
 my $repos = {
     'vim-orgmode' => { name => 'jceb/vim-orgmode', mode => 'https' },
-    'psd-yml-vim-plugin' => { name => 'paulsalcido/pds-yml-vim-plugin', },
+    'pds-yml-vim-plugin' => { name => 'paulsalcido/pds-yml-vim-plugin', },
     'pds-vim-vim-plugin' => { name => 'paulsalcido/pds-vim-vim-plugin', },
     'pds-go-vim-plugin' => { name => 'paulsalcido/pds-go-vim-plugin', },
     'pds-sh-vim-plugin' => { name => 'paulsalcido/pds-sh-vim-plugin', },
@@ -45,6 +45,9 @@ GetOptions(\%options,
     'force_mode|force-mode=s'
 );
 
+system(qw[mkdir -p ~/.vim/bundle/]);
+
 foreach my $key ( keys %$repos ) {
+    print "Installing $key\n";
     setup_repo($key, $repos->{$key}, \%options);
 }
