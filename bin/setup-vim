@@ -1,0 +1,49 @@
+#! /usr/bin/env perl
+
+use strict;
+use warnings;
+
+use Getopt::Long;
+use File::Spec;
+
+my $repos = {
+    'vim-orgmode' => { name => 'jceb/vim-orgmode', mode => 'https' },
+    'pds-vim-vim-plugin' => { name => 'paulsalcido/pds-vim-vim-plugin', },
+    'pds-go-vim-plugin' => { name => 'paulsalcido/pds-go-vim-plugin', },
+    'pds-sh-vim-plugin' => { name => 'paulsalcido/pds-sh-vim-plugin', },
+    'vim-fugitive' => { name => 'tpope/vim-fugitive', mode => 'https' },
+    'vim-speeddating' => { name => 'tpope/vim-speeddating', mode => 'https' },
+    'vimultiplex' => { name => 'paulsalcido/vimultiplex', },
+};
+
+sub setup_repo {
+    my $key = shift;
+    my $repository_data = shift;
+    my $options = shift;
+
+    if ( not -d File::Spec->catfile($ENV{HOME}, 'devel', $key) ) {
+        # Checkout the repository
+        my $repository_name = ( ( $repository_data->{mode} // '' ) eq 'https' or ( $options->{force_mode} // '' ) eq 'https' ) ?
+                sprintf('https://github.com/%s', $repository_data->{name}) :
+                sprintf('git@github.com:%s', $repository_data->{name});
+
+        chdir(File::Spec->catfile($ENV{HOME}, 'devel'));
+        system(qw/git clone/, $repository_name);
+    }
+
+    if ( not -l File::Spec->catfile($ENV{HOME}, qw/.vim bundle/, $key) ) {
+        my $link_to = File::Spec->catfile($ENV{HOME}, qw/.vim bundle/, $key);
+        my $link_from = File::Spec->catfile($ENV{HOME}, 'devel', $key);
+
+        system(qw/ln -s/, $link_from, $link_to)
+    }
+}
+
+my %options;
+GetOptions(\%options,
+    'force_mode|force-mode=s'
+);
+
+foreach my $key ( keys %$repos ) {
+    setup_repo($key, $repos->{$key}, \%options);
+}
