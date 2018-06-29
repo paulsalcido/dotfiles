@@ -3,6 +3,7 @@ execute pathogen#infect()
 set nu
 set hlsearch incsearch
 filetype plugin on
+filetype plugin indent on
 
 let mapleader = "-"
 let maplocalleader = "\\"
