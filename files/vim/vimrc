@@ -5,6 +5,10 @@ set hlsearch incsearch
 filetype plugin on
 filetype plugin indent on
 
+" vimrc settings for latex
+set shellslash
+let g:tex_flavor='latex'
+
 let mapleader = "-"
 let maplocalleader = "\\"
 
@@ -111,6 +115,13 @@ augroup myperl
     autocmd FileType perl   iabbrev <buffer> ppp package
     autocmd FileType perl   iabbrev <buffer> PPP __PACKAGE__
     autocmd FileType perl   setlocal smartindent autoindent expandtab tabstop=4 shiftwidth=4
+augroup END
+" }}}
+
+" MyLatex File Settings ------------------------- {{{
+augroup mylatex
+    autocmd!
+    autocmd FileType tex    setlocal shiftwidth=2 tabstop=2 expandtab autoindent smartindent
 augroup END
 " }}}
 
